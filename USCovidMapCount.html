@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Covid Counts in the US</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"/>
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
+</head>
+
+<body>
+<div id="map"></div>
+<div id="legend"></div>
+<div id="title">
+Covid Counts in the US 
+</div>
+<div id="subtitle">
+2020
+</div>
+<script src="js/Count.js">
+map.on('mousemove', ({point}) => {
+    const state = map.queryRenderedFeatures(point, {
+        layers: ['counts-points']
+    });
+    document.getElementById('text-description').innerHTML = state.length ?
+        `<h3>${state[0].properties.county}</h3><p><strong><em>${state[0].properties.counts}</strong> people per square mile</em></p>` :
+        `<p>Hover over a state!</p>`;
+});
+</script>
+</body>
+</html>
