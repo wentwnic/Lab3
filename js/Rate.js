@@ -74,5 +74,5 @@ layers.forEach((layer, i) => {
     legend.appendChild(item);
 });
 const source =
-    '<p style="text-align: right; font-size:10pt">Source: <a href="https://earthquake.usgs.gov/earthquakes/">USGS</a></p>';
+    '<p style="text-align: right; font-size:10pt">Source: <a href="https://github.com/jakobzhao/geog458/tree/master/labs/lab03/assets/">jakobzhao geog458/">USGS</a></p>';
 legend.innerHTML = labels.join('') + source;
